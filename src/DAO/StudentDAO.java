@@ -39,34 +39,35 @@ public class StudentDAO {
 			}
 		}
 
-		public Student getStudent(int Stu_id, String Stu_password) {
+		public Student getStudent(int stu_id, String stu_password) {
+
+			System.out.println(stu_id);
+			System.out.println(stu_password);
 
 			Student student = new Student();
 
 			try{
 
-				connection();
-				String sql ="SELECT stu_id FROM student WEHRE stu_id = ? AND stu_password = ? ";
-				stmt = con.prepareStatement(sql);
-				stmt.setInt(1, Stu_id);
-				stmt.setString(2, Stu_password);
-				rs = stmt.executeQuery();
+					connection();
+					String sql ="SELECT stu_id FROM student WHERE stu_id = ? AND stu_password = ?";
+					stmt = con.prepareStatement(sql);
+					stmt.setInt(1, stu_id);
+					stmt.setString(2, stu_password);
+					rs = stmt.executeQuery();
 
-				rs.next();
-				student.setStu_id(rs.getInt("stu_id"));
-				System.out.println(rs.getInt("stu_id"));
+					rs.next();
+					student.setStu_id(rs.getInt("stu_id"));
 
-			}catch(Exception e){
-				System.out.println(e);
-				student = null;
-			}finally{
-				try{
-					close();
 				}catch(Exception e){
+					System.out.println(e);
+					student = null;
+				}finally{
+					try{
+						close();
+					}catch(Exception e){
 
+					}
 				}
+				return student;
 			}
-			return student;
-		}
-
 }
