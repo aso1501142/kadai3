@@ -6,7 +6,7 @@
 			name="jdbc/MySQL"
 			type="javax.sql.DataSource"
 			url="jdbc:mysql://localhost/contest"
-			username="root"
-			password=""
+			username="jsa09"
+			password="jsa09"
 	/>
 </Context>
