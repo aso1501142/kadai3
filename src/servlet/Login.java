@@ -53,7 +53,9 @@ public class Login extends HttpServlet {
 			if (student != null) {
 				System.out.println("ログイン成功");
 
-				session.setAttribute("stu_id", student);
+
+
+				session.setAttribute("stu_id", stu_id);
 				path = ("WEB-INF/jsp/top.jsp");
 
 			} else {
